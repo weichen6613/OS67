@@ -77,7 +77,7 @@ default: Makefile
 # make a disk with minix v1 file system
 fs: $(UPROGS)
 	$(DEL) bin/rootfs.img
-	bximage bin/rootfs.img -hd=10M -imgmode=flat -mode=create -q
+	bximage bin/rootfs.img -hd -size=10 -mode="flat" -q
 	mkfs.minix bin/rootfs.img -1 -n14
 	sudo mount -o loop -t minix bin/rootfs.img $(ROOTFS)
 	cp usr/README $(ROOTFS) 
